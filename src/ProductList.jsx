@@ -242,7 +242,7 @@ function ProductList() {
    }
    const handleAddedToCart = (plant) => {
         dispatch(addIten(plant));
-        setAddedToCart(prevState => ({ ...prevState, [plant.name]:true }));
+        setAddedToCart(prevState => ({ ...prevState, [plant.name]: true }));
    };
    const handleCartClick = (e) => {
         e.preventDefault();
