@@ -2,56 +2,60 @@
 
 /* Navbar Styles */
 .navbar {
-  background-color: #4CAF50; /* Green background */
+  background-color: #4CAF50;
   color: white;
   padding: 15px 20px;
   display: flex;
-  justify-content: space-between; /* Space out logo/text and cart */
-  align-items: center; /* Vertically align items in the navbar */
+  justify-content: space-between;
+  align-items: center;
 }
 
 .tag {
   display: flex;
-  align-items: center; /* Align logo and text vertically */
+  align-items: center;
 }
 
 .luxury {
   display: flex;
-  align-items: center; /* Align logo and text vertically */
-  margin-right: 20px; /* Add some space between logo/text and "Plants" */
+  align-items: center;
+  margin-right: 20px;
 }
 
 .luxury img {
   height: 50px;
   width: 50px;
   margin-right: 10px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .luxury a {
   text-decoration: none;
-  display: flex; /* Ensure text flows correctly next to the image */
-  align-items: flex-start; /* Align text to the top if needed */
-  flex-direction: column; /* Stack the heading and sub-text */
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 .luxury h3 {
   color: white;
   margin-bottom: 0;
-  margin-top: 0; /* Reset default top margin */
+  margin-top: 0;
 }
 
 .luxury i {
   color: white;
   font-size: small;
-  margin-top: 0; /* Reset default top margin */
+  margin-top: 0;
 }
 
 .navbar ul {
-  display: flex;
-  list-style: none; /* Remove bullet points */
-  margin: 0;
-  padding: 0;
-  align-items: center; /* Vertically align the "Plants" link */
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: flex-end; /* Align items to the right */
+    width: 100%;/* Make the ul occupy the full space of nav bar*/
 }
 
 .navbar ul li {
@@ -66,28 +70,29 @@
 
 .cart {
   position: relative;
-  display: flex; /* Ensure cart icon and count are aligned */
+  display: flex;
   align-items: center;
 }
 
 .cart svg {
-  fill: white; /* White cart icon */
-  height: 30px; /* Adjust size as needed */
-  width: 30px;  /* Adjust size as needed */
+  fill: white;
+  height: 30px;
+  width: 30px;
 }
 
 .cart-count {
   position: absolute;
-  top: -5px; /* Adjust position as needed */
-  right: -5px; /* Adjust position as needed */
+  top: -5px;
+  right: -5px;
   background-color: red;
   color: white;
   border-radius: 50%;
   padding: 5px 8px;
   font-size: 12px;
+  text-align: center;
 }
 
-/* Product Grid Styles (no changes needed here for the navbar) */
+/* Product Grid Styles */
 .product-grid {
   padding: 20px;
 }
@@ -108,9 +113,9 @@
   margin-bottom: 30px;
 }
 
-/* Plant Card Styles (no changes needed here for the navbar) */
+/* Plant Card Styles */
 .plant-card {
-  width: 300px; /* Adjust as needed */
+  width: 300px;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 15px;
@@ -164,65 +169,69 @@
   background-color: #ccc;
   cursor: not-allowed;
 }
+
 /* Add Media Query for responsiveness */
 @media (max-width: 768px) {
-    .product-card {
-        flex: 1 1 calc(50% - 20px); /* Adjust width for 2 cards per row with 20px gap on smaller screens */
-        max-width: calc(50% - 20px); /* Adjust max-width for 2 cards per row with 20px gap on smaller screens */
+  .product-card {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+
+  .product-grid {
+    padding: 5px;
+  }
+
+    .navbar {
+      flex-direction: column;
+      align-items: center;
     }
+  .tag {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+        text-align: center;
+  }
+        .ul div{
+            text-align: center;
+        }
 }
-/* ProductList.css */
 
 .product-button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.product-button:hover {
+  background-color: #45a049;
+}
+
+.product-button.added-to-cart {
+  background-color: grey;
+}
+
+@media (max-width: 1200px) {
+  .product-card {
+    flex: 1 1 calc(33.33% - 20px);
+    max-width: calc(33.33% - 20px);
   }
-  
-  .product-button:hover {
-    background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
   }
-  
-  .product-button.added-to-cart {
-    background-color: grey; /* Grey when product is added */
-  }
-  @media (max-width: 1200px) {
-    .product-card {
-      flex: 1 1 calc(33.33% - 20px); /* Adjust width for 3 cards per row with 20px gap on medium screens */
-      max-width: calc(33.33% - 20px); /* Adjust max-width for 3 cards per row with 20px gap on medium screens */
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .product-card {
-      flex: 1 1 calc(50% - 20px); /* Adjust width for 2 cards per row with 20px gap on small screens */
-      max-width: calc(50% - 20px); /* Adjust max-width for 2 cards per row with 20px gap on small screens */
-    }
-    .navbar {
-        flex-direction: column; /* Change flex direction to stack items vertically */
-        align-items: center; /* Align items to the center of the container */
-      }
-    
-      .tag {
-        margin-bottom: 20px; /* Add margin bottom for spacing */
-        text-align: center; /* Align text to the center */
-      }
-    
-      .ul {
-        display: flex; /* Set display to flex */
-        flex-direction: column; /* Change flex direction to stack items vertically */
-        gap: 10px; /* Add gap between items */
-      }
-    
-      .ul div {
-        text-align: center; /* Align text to the center */
-      }
-  }
+}

@@ -1,15 +1,17 @@
-
 import React, { useState } from 'react';
 import ProductList from './ProductList';
 import './App.css';
 import AboutUs from './AboutUs';
 
 function App() {
-  
+
   const [showProductList, setShowProductList] = useState(false);
+  const [showAboutUs, setShowAboutUs] = useState(false);
+
 
   const handleGetStartedClick = () => {
     setShowProductList(true);
+    setShowAboutUs(false);
   };
 
   return (
@@ -21,14 +23,13 @@ function App() {
          <h1>Welcome To Paradise Nursery</h1>
           <div className="divider"></div>
           <p>Where Green Meets Serenity</p>
-         
           <button className="get-started-button" onClick={handleGetStartedClick}>
             Get Started
           </button>
          </div>
-          <div className="aboutus_container">
+         {!showProductList &&  <div className="aboutus_container">
           <AboutUs/>
-          </div>
+          </div>}
           </div>
 
       </div>
@@ -40,6 +41,3 @@ function App() {
 }
 
 export default App;
-
-
-
