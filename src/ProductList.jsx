@@ -7,11 +7,17 @@ import { addItem } from './CartSlice';
 function ProductList() {
     const [showCart, setShowCart] = useState(false); 
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
-    const [addedToCart, setAddedToCart] = useState({}); // State to track added items
     const dispatch = useDispatch();
 
     const cartItems = useSelector(state => state.cart.items);
-    const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+    // Derive addedToCart state from Redux cartItems
+    const addedToCart = cartItems.reduce((acc, item) =>{
+        acc[item.name] = true;
+        return acc;
+    }, {});
+
+    const totalQuantity = cartItems.length;
 
     const plantsArray = [
         {
@@ -242,8 +248,7 @@ function ProductList() {
    }
    const handleAddToCart = (plant) => {
         dispatch(addItem(plant));
-        setAddedToCart(prevState => ({ ...prevState, [plant.name]: true }));
-   };
+    };
    const handleCartClick = (e) => {
         e.preventDefault();
         setShowCart(true); // Set showCart to true when cart icon is clicked
@@ -290,8 +295,8 @@ function ProductList() {
                                 <h3>{plant.name}</h3>
                                 <p className='description'>{plant.description}</p>
                                 <p className='cost'>Cost: ${plant.cost}</p>
-                                <button onClick={() => handleAddToCart(plant)} disabled={addedToCart[plant.name]}>
-                                    {addedToCart[plant.name] ? 'Added to Cart' : 'Added to Cart'}                                
+                                <button onClick={() => handleAddToCart(plant)}>
+                                    {addedToCart[plant.name] ? 'Added to Cart' : 'Add to Cart'}                                
                                 </button>
                             </div>
                         ))}
